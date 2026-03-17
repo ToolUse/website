@@ -27,9 +27,23 @@ const { title, description = "The podcast about AI tools that actually work. Hos
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <title>{title}</title>
-    <script src="https://rover.rtrvr.ai/embed.js" async></script>
+    <script src="https://rover.rtrvr.ai/embed.js?v=a3bda127-63d2-40dd-8cc0-b8d2bbaa044b" async></script>
   </head>
   <body class="bg-neutral-950 text-white font-[Inter] antialiased">
     <slot />
+    <script is:inline>
+      (function(){ var r = window.rover = window.rover || function(){ (r.q = r.q || []).push(arguments); }; r.l = +new Date(); })();
+      rover('boot', {
+        "siteId": "ToolUse-nQ7GIg",
+        "publicKey": "pk_site_4sdzhHUR1XOzOLnW0vQUbNLbOMqJFWzqSulB9WgsWVA",
+        "siteKeyId": "a3bda127-63d2-40dd-8cc0-b8d2bbaa044b",
+        "allowedDomains": ["*.toolusepodcast.com"],
+        "domainScopeMode": "registrable_domain",
+        "externalNavigationPolicy": "open_new_tab_notice",
+        "apiBase": "https://extensionrouter.rtrvr.ai",
+        "taskRouting": { "mode": "act", "plannerOnActError": true },
+        "checkpointing": { "enabled": true, "autoVisitorId": true }
+      });
+    </script>
   </body>
 </html>
