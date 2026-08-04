@@ -10,6 +10,15 @@ export interface Episode {
 
 export const episodes: Episode[] = [
   {
+    number: 84,
+    guest: "Karan (Nous Research), Wolfram Ravenwolf, Robert Desmond, Evan Roach & Kat Winter",
+    title: "Hermes Agent Has Won. Here's Why",
+    date: "2026-04-14",
+    youtubeUrl: "https://youtu.be/1GMSGEN0UaQ",
+    spotifyUrl: null,
+    description: "Why builders are switching to Hermes, the open-source AI agent — real use cases, limitations, and the open vs closed AI infrastructure debate",
+  },
+  {
     number: 83,
     guest: "Arjun Chintapalli & Bhavani Kalisetty",
     title: "How To Make Your Websites Fully Autonomous",
