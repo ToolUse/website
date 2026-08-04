@@ -15,7 +15,7 @@ export const episodes: Episode[] = [
     title: "Hermes Agent Has Won. Here's Why",
     date: "2026-04-14",
     youtubeUrl: "https://youtu.be/1GMSGEN0UaQ",
-    spotifyUrl: null,
+    spotifyUrl: "https://open.spotify.com/episode/7tF7zf5GKcxqe2Q2BRRNfn",
     description: "Why builders are switching to Hermes, the open-source AI agent — real use cases, limitations, and the open vs closed AI infrastructure debate",
   },
   {
