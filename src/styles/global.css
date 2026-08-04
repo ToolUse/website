@@ -1,8 +1,28 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Formula Condensed';
+  src: url('/fonts/PPFormula-CondensedBlack.otf') format('opentype');
+  font-weight: 900;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Formula Extended';
+  src: url('/fonts/PPFormula-ExtendedMedium.otf') format('opentype');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Formula Extended';
+  src: url('/fonts/PPFormula-ExtendedBold.otf') format('opentype');
+  font-weight: 700;
+  font-display: swap;
+}
+
 @theme {
-  --color-brand: #f97316;
-  --color-brand-light: #fb923c;
-  --color-brand-dark: #ea580c;
-  --font-family-display: 'Inter', system-ui, sans-serif;
+  --color-brand-blue: #194cff;
+  --color-brand-orange: #ff6332;
+  --color-brand-grey: #c4cadf;
+  --font-display: 'Formula Condensed', 'Arial Narrow', sans-serif;
+  --font-extended: 'Formula Extended', 'Inter', sans-serif;
 }

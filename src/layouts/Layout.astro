@@ -6,7 +6,7 @@ interface Props {
   description?: string;
 }
 
-const { title, description = "The podcast about AI tools that actually work. Hosted by Mike Bird." } = Astro.props;
+const { title, description = "Great Tools Build Good AI. The Tool Use podcast — real tools, real deployments, real workflows. Hosted by Mike Bird." } = Astro.props;
 ---
 
 <!doctype html>
@@ -28,7 +28,39 @@ const { title, description = "The podcast about AI tools that actually work. Hos
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <title>{title}</title>
   </head>
-  <body class="bg-neutral-950 text-white font-[Inter] antialiased">
+  <body class="bg-black text-white font-[Inter] antialiased">
+    <nav class="flex items-center justify-between px-8 py-4 bg-black">
+      <a href="/">
+        <img class="w-24" src="/assets/T-U_Full_White.svg" alt="Tool Use" />
+      </a>
+      <div class="flex items-center gap-7 font-extended font-bold text-[13px] uppercase tracking-wider">
+        <a href="/episodes" class="hover:text-brand-orange transition-colors max-sm:hidden">Episodes</a>
+        <a href="https://x.com/MikeBirdTech" target="_blank" rel="noopener" class="hover:text-brand-orange transition-colors max-sm:hidden">@MikeBirdTech</a>
+        <a
+          href="https://www.youtube.com/@ToolUsePodcast"
+          target="_blank"
+          rel="noopener"
+          class="bg-brand-blue hover:bg-brand-orange text-white text-sm tracking-wider px-7 py-3 rounded-full transition-all hover:-translate-y-0.5"
+        >Subscribe</a>
+      </div>
+    </nav>
+
     <slot />
+
+    <footer class="bg-black px-8 pt-24 pb-10 overflow-hidden">
+      <div class="max-w-6xl mx-auto">
+        <img class="w-[min(560px,80%)] mb-16" src="/assets/T-U_Outline_White.svg" alt="Tool Use" />
+        <div class="flex justify-between items-end gap-6 flex-wrap border-t border-neutral-900 pt-7">
+          <p class="font-extended font-medium text-[13px] uppercase tracking-wider text-brand-grey">
+            Tool Use Podcast — Hosted by <a href="https://www.mikebird.tech" target="_blank" rel="noopener" class="hover:text-brand-orange transition-colors">Mike Bird</a>
+          </p>
+          <div class="flex gap-6 font-extended font-medium text-[13px] uppercase tracking-wider text-brand-grey">
+            <a href="https://www.youtube.com/@ToolUsePodcast" target="_blank" rel="noopener" class="hover:text-brand-orange transition-colors">YouTube</a>
+            <a href="https://open.spotify.com/show/4mYqyL7gGglZV7ByW8TVe9" target="_blank" rel="noopener" class="hover:text-brand-orange transition-colors">Spotify</a>
+            <a href="https://x.com/MikeBirdTech" target="_blank" rel="noopener" class="hover:text-brand-orange transition-colors">X</a>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

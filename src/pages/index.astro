@@ -1,59 +1,105 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { episodes } from '../data/episodes';
+
+const latest = episodes.slice(0, 3);
 ---
 
-<Layout title="Tool Use Podcast">
-  <main class="min-h-screen flex flex-col items-center justify-center px-6">
-    <!-- Logo / Title -->
-    <div class="text-center max-w-2xl">
-      <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-4">
-        <span class="text-orange-500">Tool Use</span> Podcast
-      </h1>
-      <p class="text-lg md:text-xl text-neutral-400 mb-10 max-w-lg mx-auto">
-        AI tools that actually work. New episodes every Tuesday.
+<Layout title="Tool Use Podcast — Great Tools Build Good AI">
+  <!-- Hero -->
+  <header class="bg-brand-orange text-black px-8 pt-16 overflow-hidden">
+    <div class="max-w-6xl mx-auto grid grid-cols-[1.4fr_1fr] max-md:grid-cols-1 gap-10 items-end">
+      <div>
+        <h1 class="font-display uppercase leading-[0.86] text-[clamp(72px,11vw,168px)] mb-8">
+          Great<br />Tools<br />
+          <span class="text-brand-blue">Build</span><br />
+          <span class="text-brand-grey">Good</span> AI
+        </h1>
+        <p class="font-extended font-medium text-[clamp(17px,1.6vw,22px)] max-w-md mb-9">
+          The podcast for builders who refuse to be passengers.
+          Real tools, real deployments, real workflows — hosted by Mike Bird.
+        </p>
+        <div class="flex gap-4 flex-wrap mb-16">
+          <a
+            href="https://www.youtube.com/@ToolUsePodcast"
+            target="_blank"
+            rel="noopener"
+            class="font-extended font-bold uppercase tracking-wider text-sm bg-black hover:bg-brand-blue text-white px-8 py-3.5 rounded-full transition-all hover:-translate-y-0.5"
+          >Watch on YouTube</a>
+          <a
+            href="https://open.spotify.com/show/4mYqyL7gGglZV7ByW8TVe9"
+            target="_blank"
+            rel="noopener"
+            class="font-extended font-bold uppercase tracking-wider text-sm border-2 border-black text-black hover:bg-black hover:text-white px-8 py-3.5 rounded-full transition-all hover:-translate-y-0.5"
+          >Listen on Spotify</a>
+        </div>
+      </div>
+      <img class="w-full max-w-md justify-self-end self-center pb-16 max-md:justify-self-start max-md:max-w-64 max-md:pb-10" src="/assets/T-U_Full_Blue.svg" alt="" />
+    </div>
+  </header>
+
+  <!-- Manifesto — hidden for now; Mike will write the final copy himself.
+  <section class="bg-black px-8 py-28">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="font-display uppercase leading-[0.86] text-[clamp(48px,6.5vw,104px)] text-white">
+        The era of <span class="text-brand-orange">passive observation</span> is over
+      </h2>
+      <div class="h-8"></div>
+      <p class="text-brand-grey text-[17px] leading-relaxed mb-5">
+        Unmonitored algorithms are taking over the stack while most people
+        watch from the sidelines. <strong class="text-white font-semibold">Not on our watch.</strong>
       </p>
+      <p class="text-brand-grey text-[17px] leading-relaxed">
+        Tool Use is a high-trust laboratory: deep knowledge and advanced
+        tools, combined into systems that are beautiful, safe, and
+        human-driven. <strong class="text-white font-semibold">Builders remain in charge</strong> —
+        from architecture to execution.
+      </p>
+    </div>
+  </section>
+  -->
 
-      <!-- CTA Buttons -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-        <a
-          href="https://www.youtube.com/@ToolUsePodcast"
-          target="_blank"
-          rel="noopener"
-          class="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white font-semibold px-8 py-3.5 rounded-full transition-colors text-lg"
-        >
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
-          Watch on YouTube
-        </a>
-        <a
-          href="https://open.spotify.com/show/4mYqyL7gGglZV7ByW8TVe9"
-          target="_blank"
-          rel="noopener"
-          class="inline-flex items-center gap-2 border border-neutral-700 hover:border-neutral-500 text-white font-semibold px-8 py-3.5 rounded-full transition-colors text-lg"
-        >
-          <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/></svg>
-          Listen on Spotify
-        </a>
-      </div>
-
-      <!-- Episodes Link -->
-      <div class="mb-10">
-        <a
-          href="/episodes"
-          class="text-neutral-400 hover:text-orange-400 transition-colors text-sm font-medium"
-        >
-          Browse all 83 episodes &rarr;
+  <!-- Latest episodes -->
+  <section class="bg-brand-grey text-black px-8 pt-24 pb-28">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex items-end justify-between flex-wrap gap-6 mb-14">
+        <h2 class="font-display uppercase leading-[0.86] text-[clamp(56px,8vw,128px)]">
+          Latest <span class="text-brand-blue">Drops</span>
+        </h2>
+        <a href="/episodes" class="font-extended font-bold uppercase text-sm tracking-wider border-b-[3px] border-brand-blue pb-1.5 hover:text-brand-blue transition-colors">
+          Browse all {episodes.length} episodes &rarr;
         </a>
       </div>
 
-      <!-- About -->
-      <div class="text-neutral-500 text-sm">
-        <p>Hosted by <a href="https://x.com/MikeBirdTech" target="_blank" rel="noopener" class="text-neutral-300 hover:text-orange-400 transition-colors">Mike Bird</a></p>
+      <div class="grid grid-cols-3 max-lg:grid-cols-1 gap-7">
+        {latest.map((ep) => (
+          <article class="bg-white rounded-2xl overflow-hidden flex flex-col transition-transform hover:-translate-y-1.5">
+            <a href={ep.youtubeUrl ?? '/episodes'} target="_blank" rel="noopener" class="block relative aspect-[16/9.1] bg-[url('/assets/swoosh-card.png')] bg-cover bg-center">
+              <span class="absolute top-4 left-5 font-display uppercase text-3xl text-black bg-white px-3.5 pt-0.5 pb-1.5 rounded-lg">
+                Episode {ep.number}
+              </span>
+              <span class="absolute right-4 bottom-4 w-13 h-13 rounded-full bg-brand-blue grid place-items-center">
+                <svg class="w-4.5 h-4.5 fill-white ml-0.5" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+              </span>
+            </a>
+            <div class="p-6 pb-7 flex flex-col gap-3 flex-1">
+              {ep.guest && (
+                <p class="font-extended font-bold text-xs uppercase tracking-wider text-brand-blue">{ep.guest}</p>
+              )}
+              <h3 class="font-display uppercase text-3xl leading-[0.95] text-black">{ep.title}</h3>
+              <p class="text-sm leading-relaxed text-neutral-800 flex-1">{ep.description}</p>
+              <div class="flex gap-5 font-extended font-bold text-xs uppercase tracking-wider">
+                {ep.youtubeUrl && (
+                  <a href={ep.youtubeUrl} target="_blank" rel="noopener" class="border-b-2 border-brand-orange pb-0.5 hover:text-brand-orange transition-colors">YouTube</a>
+                )}
+                {ep.spotifyUrl && (
+                  <a href={ep.spotifyUrl} target="_blank" rel="noopener" class="border-b-2 border-brand-orange pb-0.5 hover:text-brand-orange transition-colors">Spotify</a>
+                )}
+              </div>
+            </div>
+          </article>
+        ))}
       </div>
     </div>
-
-    <!-- Subtle gradient glow -->
-    <div class="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
-      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-orange-500/10 rounded-full blur-[120px]"></div>
-    </div>
-  </main>
+  </section>
 </Layout>
